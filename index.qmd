@@ -1,0 +1,263 @@
+---
+title: "A fixed course under a moving game: ninety years of the Masters, the year-to-year amplitude of a championship venue, and a hole-year panel of architectural change"
+author:
+  - name: Junaid Mohiuddin
+    orcid: 0009-0009-8806-4853
+    corresponding: true
+    email: jgmohiuddin@gmail.com
+    roles:
+      - Conceptualization
+      - Data curation
+      - Formal analysis
+      - Writing
+    affiliations:
+      - Independent researcher, San Francisco Bay Area, California, USA
+keywords:
+  - difference-in-differences
+  - fixed effects
+  - course alterations
+  - structural break
+  - weather adjustment
+  - wild-cluster bootstrap
+abstract: |
+  Golf measures its players exhaustively and its courses hardly at all. A course that hosts the same championship every year on the same holes is a fixed instrument against which everything else that moves can be read. This paper assembles the field scoring average relative to par for all ninety Masters Tournaments (1934–2026), joins each to playing-hours weather, and tests every quantity at the level at which it varies. A course that is not changed still moves about 0.86 strokes from one year to the next, as much as the rotating major venues move between visits; temperature and wind explain 41% of the variance. The 660 yards added since 1983 produced no detectable shift in the weather-adjusted course average, and a half-stroke easing since the mid-2010s is not established as a break. A hole-year panel of 756 hole-years with hole and year fixed effects, hole-specific trends, wild-cluster and randomisation inference identifies +0.034 strokes per 10 yards on the lengthened hole relative to the others, fading to +0.019 after three years, linear in dose. The two designs measure different things: the year effects absorb the course total, and the untouched holes eased by about as much as the lengthened holes hardened.
+plain-language-summary: |
+  A golf course that hosts the same tournament every year on the same holes can be treated as a measuring instrument. Using every Masters Tournament since 1934, the paper shows that a course nobody changes still moves close to a stroke from one year to the next, that the 660 yards added to Augusta National since 1983 did not make the course harder in total, and that lengthening a hole makes that hole about 0.03 strokes harder per ten yards relative to the others, while the untouched holes got easier by about as much.
+key-points:
+  - A fixed championship course under an elite field moves about 0.86 strokes a year with nothing changed; temperature and wind explain 41% of the variance at Augusta.
+  - A hole-year panel with hole and year fixed effects identifies about 0.034 strokes per 10 yards on the lengthened hole, with inference built for eighteen clusters.
+  - The year effects absorb the course total, so the panel and the time series measure different quantities; they reconcile because untouched holes eased by about as much as lengthened holes hardened.
+date: last-modified
+bibliography: references.bib
+citation:
+  container-title: Journal of Statistics and Data Science in Sports
+number-sections: true
+---
+
+## Introduction
+
+Modern golf analytics is a science of the player. Strokes gained [@broadie2014] decomposes every shot on the PGA Tour against a field benchmark, and the governing bodies, broadcasters and players' own teams use shot-level data to an extent no other individual sport matches. The ground the game is played on has no equivalent. A golf course's difficulty is described by a Course Rating produced by a panel of raters about once a decade [@usga2024], and when a club spends an eight-figure sum lengthening or rebuilding its course, there is no measured output — no number for what the course did before the work and after it — only the construction specification and the opinions of those who play it.
+
+The reason is partly that the natural experiment is rare. Most championships rotate among venues, so a course is observed at intervals of five to ten years, under different setups and weather, and the course's own contribution cannot be separated from the occasion's. A small number of courses are measured almost every year on the same eighteen holes by a field of roughly constant standard. Augusta National Golf Club, host of the Masters Tournament every April since 1934 (the war years excepted), is the longest such record in the sport, and it comes with a published hole-by-hole chronology of every alteration to the course and, since 1983, hole-by-hole scoring tables for every round.
+
+This paper treats that record as a fixed instrument. Section 2 describes the data: ninety field scoring averages, the hourly weather at the nearest station since 1948, and a panel of 756 hole-years with the yardage and documented changes of each hole in each year. Section 3 sets out the inference, which is organised around one principle: a quantity is tested at the level at which it varies. A treatment that varies by year — a course change, an era boundary — is tested with the year as the unit, with autocorrelation-robust standard errors and, for a break of unknown date, a sup-F statistic compared with an autocorrelation-preserving bootstrap null. A treatment that varies by hole and year is tested in a two-way fixed-effects panel with the hole as the cluster, and because there are only eighteen clusters, with a wild-cluster bootstrap and a randomisation test rather than asymptotic standard errors.
+
+Three results follow (Section 4). The year-to-year movement of a fixed championship course under an elite field is about 0.86 strokes, as large as the between-visit movement of the rotating major venues, and weather explains 41% of its variance at Augusta, almost entirely through temperature and wind. The 660 yards added to the course since 1983 produced no shift in the course-level average that the series can detect, while the hole-year panel identifies a clear relative effect on the lengthened holes of +0.034 strokes per 10 yards, which fades by nearly half after three years and shows no diminishing returns in dose. The two results are consistent: the untouched holes eased by as much as the lengthened holes hardened, so that lengthening held the course level against everything else that was easing it. Section 5 discusses what the design can and cannot say about the long-run interaction of course and equipment, and Section 6 states the limitations.
+
+The methodological contribution is modest but, we think, useful beyond golf: a hole-year panel in which each architectural change has a within-tournament control group of seventeen untouched holes, played by the same field on the same day in the same weather, and in which the year fixed effects absorb exactly the quantity — the course total — that the time-series analysis measures. The two designs identify different things, and showing that they do is the paper's main point.
+
+## Data
+
+### Scoring
+
+The outcome throughout is the field scoring average relative to par (FSA), defined as the simple mean of the four daily field averages minus par (72 at Augusta throughout). For 1983–2026 the series is taken from a public tournament archive [@datagolf2026] and verified against a transcription of every player's round scores from the tournament's published results [@angc2026]; over the 42 overlapping years the two agree at r = 0.9995 with a mean difference of 0.001 strokes. For 1934–1982 the series is computed from the same transcription (11,435 rounds). The archive publishes no headline figure for 1985 or 1988; both were reconstructed from its leaderboards on the same definition.
+
+Because a 36-hole cut was introduced in 1957 and the round-mean definition averages two full-field rounds with two post-cut rounds, a second, cut-free series was built for every year: the mean of the first- and second-round field averages. This "first-36" series is the same instrument from 1934 to 2026 and is used wherever years on either side of 1957 are compared. The two series correlate at 0.93; the headline series is used for 1983–2026, where the cut is constant.
+
+The archive's per-round hole tables (scoring relative to par, and counts of eagles, birdies, pars, bogeys and worse, for each hole in each round) were collected for the 42 Masters that have them, 1983–2026 excluding 1985 and 1988 (3,024 hole-rounds), and aggregated to 756 hole-years. The 36-hole cut affects all eighteen holes alike within a year and is absorbed by the year fixed effects of Section 3.3.
+
+### Weather
+
+Hourly observations for Augusta Bush Field (NCEI station USW00003820; 15.8 km from the course centroid) were taken from NCEI's Local Climatological Data for 1948–2026 [@ncei2026]. For each Masters the competition days were taken from the Media Guide, including the Monday finishes of 1961, 1973 and 1983 and the November dates of 2020, and covariates were computed over playing hours, 08:00–17:59 local: mean temperature, mean wind speed, maximum gust, relative humidity, precipitation and hours with rain observed. Daily summaries from the GHCN record give the same results and are not reported. A second station, Daniel Field (4.3 km from the course, hourly from 2005; the two stations are 12 km apart), was used to check whether distance matters at an inland site; over the 22 Masters both cover the two stations' playing-hours temperatures correlate at 0.99 and winds at 0.85, and the regressions of Section 4.2 explain slightly more variance from the more distant station (R² 0.53 against 0.50), so the longer record is used.
+
+### Course changes and yardage
+
+The Media Guide's hole-by-hole chronology lists 105 documented alterations to the course from 1934 to 2026, of which 47 fall in the hole-table era. Each was classified into one of five classes: a change of length (a new or relocated tee, with the yardage), a green rebuilt or recontoured, trees added, trees removed, and bunker or fairway work. Official per-hole yardage was built forward from the 1983 scorecard by applying each documented tee change; the resulting course totals match the published tournament yardage in every year but one (1988, by 20 yards). The tournament yardage rose from 6,905 yards in 1983 to 7,565 in 2026, with 440 of the 660 yards added in 2002 and 2006.
+
+### Benchmark venues
+
+For the comparison of Section 4.3, fifteen venues that hosted two or more of the other three men's major championships between 2010 and 2026 were taken with the field scoring average at each visit from the same archive, giving one gap per venue (the largest pairwise gap for the one venue with three visits), at intervals of five to ten years (mean 8.3).
+
+## Methods
+
+### Weather adjustment
+
+FSA is regressed on playing-hours mean temperature and mean wind speed by ordinary least squares with Newey–West heteroskedasticity- and autocorrelation-consistent standard errors [@neweywest1987], bandwidth two lags; results are reported at bandwidths zero to four. The two-covariate model was chosen in advance over gust, humidity and precipitation on interpretability; the alternatives are reported where they differ. A four-year block bootstrap (5,000 draws) gives a second interval for the temperature effect. The residual from this regression — scoring net of the weather during play — is the series on which era contrasts and break tests are run.
+
+### Year-level inference
+
+Every treatment in the time-series analysis varies by year, and the year is therefore the unit of inference. An era contrast (a shift at a date fixed in advance by the course's own history — the cut in 1957, bentgrass greens in 1981, the lengthenings of 2002 and 2006, the tee move of 2019) is the coefficient on a post-date indicator in a regression of the weather-adjusted residual, with HAC standard errors; the ordinary standard error is reported beside it so the reader can see what serial correlation does. For a break of unknown date, the sup-F statistic of @andrews1993 is computed over all candidate dates with 15% trimming, and its p-value is obtained by comparing it with 5,000 draws of the same statistic from an AR(1) sieve bootstrap of the residual [@buhlmann1997], which preserves the series' autocorrelation under the null of no break. Single-date Chow statistics at searched dates are not reported as evidence; where a dated contrast and a break search are both run on the same series, the paper says which is which.
+
+### Hole-year panel
+
+Let $r_{ht}$ be the field's mean score relative to par on hole $h$ in year $t$. The baseline specification is
+
+$$
+r_{ht} = \beta L_{ht} + \gamma^{\prime} C_{ht} + \alpha_h + \delta_t + \varepsilon_{ht},
+$$ {#eq-panel}
+
+where $L_{ht}$ is the hole's official yardage in tens of yards, $C_{ht}$ is a vector of indicators for the cumulative count of green, tree-added, tree-removed and bunker-or-fairway alterations to the hole by year $t$, $\alpha_h$ is a hole fixed effect and $\delta_t$ a year fixed effect. The year effects absorb everything that moved all eighteen holes together in a year — weather, field, setup, equipment and the cut — so $\beta$ is identified from the difference-in-differences between a lengthened hole and the seventeen others, within the same tournament. A second specification adds hole-specific linear trends, $\alpha_h + \lambda_h t$, so that a hole whose difficulty was drifting before it was changed is compared with its own trend rather than with its mean.
+
+Inference clusters by hole. With eighteen clusters the asymptotic cluster-robust standard error is unreliable [@cameron2008; @mackinnon2017], so three alternatives are reported: a wild-cluster bootstrap p-value (Rademacher weights, restricted null, 5,000 draws); a randomisation test in which the eighteen holes' entire change histories are permuted across holes, keeping the timing of every change, and the coefficient recomputed 2,000 times; and, for the five change classes tested together, Holm's [-@holm1979] step-down adjustment across the family.
+
+Because the treatment is staggered and its effect may not be constant, the two-way fixed-effects coefficient is a weighted average whose weights can misbehave [@goodmanbacon2021; @dechaisemartin2020]. Two checks are reported. An event study around each of the 23 lengthenings of 15 yards or more replaces $L_{ht}$ with indicators for years −6 to +6 relative to the move, each scaled by the yards added, with the endpoints binned, so that pre-trends and the time path of the effect are visible. A stacked clean-control design [@cengiz2019] gives each lengthening its own ±6-year window in which the controls are holes with no documented change of any kind during the window, with window-specific hole and year effects and, in a second version, window-specific hole trends; its window dummies are redundant across stacks, so the cluster-robust covariance is computed with a generalised inverse and reported with a wild-cluster bootstrap p-value and a cluster bootstrap over holes (400 draws).
+
+### Counterfactual
+
+The panel allows the question a club asks — what would the course have scored had it not been lengthened — to be answered within the design's own logic. The counterfactual course in year t is the actual sum of the eighteen hole scores minus the relative effect of the cumulative yards added since 1983 at the chosen rate. Two rates are used: the two-way fixed-effects coefficient, which weights the largest and most recent moves most heavily, and the mean event-study coefficient from the fourth year after a move onward, which is the durable rate after the initial reversion. The construction assumes that the untouched holes are what the lengthened holes would have done, and is a relative-effect counterfactual rather than a forecast.
+
+## Results
+
+### Ninety Masters
+
+Over all ninety tournaments the field scoring average is +1.94 strokes over par (SD 1.10), and its history is a staircase rather than a line (@fig-f1, @tbl-eras). The pre-war fields averaged about +3.0; the post-war, no-cut fields of 1946–1956 averaged +3.4 and include the three hardest Masters ever played (1956, +5.26; 1934, +4.21; 1955, +4.17); the cut era from 1957 to 1980 averaged +2.0; the bentgrass era from 1981 through the last pre-lengthening year, 2001, averaged +1.5; the lengthened course from 2002 to 2018 averaged exactly the same, +1.5; and the eight tournaments since 2019 average +0.8. The era boundaries are dates the course chose — the cut, the greens, the two lengthenings, the 2019 tee move — not dates chosen from the data.
+
+```{python}
+#| label: fig-f1
+#| fig-cap: "(A) Field scoring average relative to par at all ninety Masters, 1934–2026, headline series (solid) and cut-free first-36 series (dashed), with era means (horizontal bars). (B) Published tournament yardage. Results for 1934–1982 transcribed from the 2026 Masters Media Guide."
+#| fig-width: 6.5
+#| fig-height: 4.2
+#| echo: false
+import sys; sys.path.insert(0,'scripts'); import fig_lib as F
+F.fig1();
+```
+
+| Era | n | Headline FSA | First-36 FSA | First-36, weather-adjusted | Note |
+|---|---|---|---|---|---|
+| 1934–1942 | 9 | +2.98 | +2.88 | — | no cut |
+| 1946–1956 | 11 | +3.38 | +3.29 | +3.11 (from 1948) | no cut; hardest era |
+| 1957–1980 | 24 | +1.98 | +2.60 | +2.40 | 36-hole cut from 1957 |
+| 1981–2001 | 21 | +1.49 | +2.12 | +2.16 | bentgrass greens from 1981 |
+| 2002–2018 | 17 | +1.49 | +2.15 | +2.42 | +440 yards in 2002 and 2006 |
+| 2019–2026 | 8 | +0.81 | +1.20 | +1.52 | longest course; easiest era |
+| All | 90 | +1.94 | +2.39 | | |
+
+: Era means of the field scoring average relative to par, headline and cut-free first-36 series. {#tbl-eras}
+
+The largest step is the earliest, and it is real on the cut-free instrument. With playing-hours weather controlled, the first-36 series falls by 0.87 strokes across 1957 (HAC SE 0.34, p = .01) and by a further 0.45 across 1981 (SE 0.25, p = .075). Treated as a break of unknown date, the headline series over 1948–2026 breaks most sharply at 1959 (sup-F 44.6; sieve-bootstrap p = .008) and the first-36 series at 1968 (sup-F 19.3; p = .076); neither sub-sample shows a second break (p = .82 before 1968, p = .62 after). The cut itself cannot explain a change in the first two rounds, so the easing between the mid-1950s and the early 1980s — about a stroke on the cut-free series, two on the headline series — is a change in how the course played for the fields of the time, and it occurred before a yard was added.
+
+What that step is not is a course-difficulty finding. Across ninety years the instrument is fixed but the players are not: steel shafts, metal woods, the solid-core ball and the modern wedge all arrived inside this series, as did the fields that used them. The long series measures how Augusta National played for the golfers and equipment of each era and cannot apportion the easing between the course and the game. The paper therefore confines causal language about the course to 1983–2026, where the windows around each documented change are short enough that equipment is held nearly constant and the hole-level design of Section 4.4 applies.
+
+Over the 44 Masters since 1983 the mean is +1.34 (SD 0.84). The hardest were 2007 (+3.87), 1987 (+2.40), 2016 and 1988 (+2.38) and 2003 (+2.30); the easiest 2019 (−0.23), 2020 (−0.21), 1992 (−0.09) and 1991 (+0.14). The range, 4.1 strokes, is wider than any single between-visit gap in the rotating-venue benchmark of Section 4.3.
+
+### What weather explains
+
+Temperature, not rain, is the weather variable that moves Augusta. Over 1983–2026 mean playing-hours temperature correlates with FSA at r = −0.57, mean wind at +0.48, maximum gust at +0.33, relative humidity at −0.46 and precipitation during play at −0.01. The four coldest tournaments of the period — 2007, 2016, 2003 and 2022, played in playing-hours temperatures in the 50s and low 60s — are four of the six hardest; the two warmest, 2019 and 2020, are the two easiest (@fig-f2 A). Rain is weak, consistent with the course's known drainage and sub-surface air systems, though the data cannot show the mechanism.
+
+```{python}
+#| label: fig-f2
+#| fig-cap: "(A) Field scoring average against playing-hours temperature, 1983–2026, with the fitted line from @eq-weather at mean wind. (B) Raw and weather-adjusted series, 1948–2026, the adjusted series re-centred on the raw mean."
+#| fig-width: 6.5
+#| fig-height: 2.6
+#| echo: false
+import sys; sys.path.insert(0,'scripts'); import fig_lib as F
+F.fig2();
+```
+
+The regression of FSA on playing-hours temperature and wind over 1983–2026 (n = 44) gives
+
+$$
+\mathrm{FSA} = 5.33 - 0.072\,\mathrm{TEMP}(^{\circ}\mathrm{F}) + 0.112\,\mathrm{WIND}(\mathrm{mph}),
+$$ {#eq-weather}
+
+with HAC standard errors of 0.025 for temperature (p = .004) and 0.050 for wind (p = .026); the p-values are 0.004–0.005 and 0.018–0.037 at every bandwidth from zero to four lags, and the residual's lag-1 autocorrelation is 0.25 (Durbin–Watson 1.50). A week 10°F colder than average is worth about +0.7 strokes (block-bootstrap 95% CI 0.2 to 1.2); each mile per hour of mean wind about +0.11 (CI −0.01 to 0.22). The model explains 41% of the variance, and the residual — the weather-adjusted difficulty — has SD 0.66 against a raw SD of 0.84. Relative humidity correlates with scoring as strongly as wind but is a wind proxy here (r = −0.47 with wind; dry Aprils at Augusta are windy ones): adding it takes the wind coefficient to 0.07 (p = .20) and raises R² only to 0.46, so the two-variable model is kept. Dropping November 2020 changes nothing material (−0.069 per °F, +0.105 per mph, R² 0.39).
+
+The hourly record begins in 1948, so the same model can be fitted to 79 Masters: FSA = 5.05 − 0.074·TEMP + 0.19·WIND (both p < .001), R² 0.42, residual SD 0.84; on the first-36 series, −0.092 per °F and +0.13 per mph (R² 0.38), and it is the residual from that model that produces the weather-adjusted era means of @tbl-eras. The wind coefficient is larger before 1983 than after (0.19 against 0.11), but an era interaction does not reject equality (p = .23) and the pre-1983 windows were on average 1.4 mph windier, so the difference is consistent with sampling. There is no evidence in 79 years that the course's sensitivity to temperature has changed, and only weak evidence for wind (@fig-f2 B).
+
+Where the weather is measured matters less at an inland site than one might expect: the Daniel Field check of Section 2.2 shows that at Augusta two stations 12 km apart are the same instrument. Whether that holds at a coastal course with a microclimate is a hypothesis the Augusta record cannot test.
+
+### How much does a fixed course move?
+
+A course that does not change still moves. Over 1983–2026, Augusta's consecutive-year absolute change has a mean of 0.86 strokes and a median of 0.86; 16 of 43 pairs moved a stroke or more, and the largest single move is 2.16 (2006 to 2007). Weather adjustment reduces the mean change to 0.68 (residual SD 0.66). The amplitude is stable within the venue: in every 15-year window since 1948 (65 windows) the SD lies between 0.62 and 1.13 and the mean absolute year-to-year change between 0.62 and 1.05.
+
+That movement is as large as the between-visit movement at the rotating major venues (@fig-f3). Across the fifteen benchmark venues the absolute gap in FSA between visits has a median of 0.55 and a mean of 0.99, and reaches a stroke or more in six of fifteen cases (Royal St George's 2.88, Pebble Beach 2.76, Shinnecock Hills 1.71, St Andrews 1.52, Royal Liverpool 1.12, Royal Portrush 1.09); at the other extreme Kiawah Island moved 0.06 and Pinehurst No. 2 and Valhalla 0.31. The comparison is at unequal gaps, but because Augusta's series is stationary its absolute change does not grow with the gap: the mean absolute change between two Masters separated by each benchmark venue's own interval, averaged over the fifteen intervals, is 0.85, against 0.95 for a stationary series of the same SD. A Mann–Whitney test does not distinguish Augusta's year-to-year changes from the benchmark's between-visit gaps (p = .99).
+
+```{python}
+#| label: fig-f3
+#| fig-cap: "Absolute change in field scoring average: Augusta National between consecutive Masters, 1983–2026 (43 pairs), and fifteen rotating major venues between visits, 2010–2026. Vertical bars are medians."
+#| fig-width: 6.5
+#| fig-height: 2.4
+#| echo: false
+import sys; sys.path.insert(0,'scripts'); import fig_lib as F
+F.fig3();
+```
+
+Two readings follow. The first is a resolution limit: with a weather-adjusted residual SD of 0.66 and lag-1 autocorrelation 0.25, the smallest course-level shift a before-and-after test at 2002 (19 years before, 25 after) can detect with 80% power is about 0.7 strokes. Anything that moves the course total by less than that is invisible in the tournament average, and Section 4.5 shows that the 440 yards of 2002 and 2006, which the panel prices at about 1.5 strokes relative, were offset rather than small. The second is that the "noise floor" of an elite field on a fixed course is itself a measured quantity: a change of a stroke between two visits to a rotating venue is what a fixed venue does from one April to the next with nothing altered, and should not on its own be read as evidence that the course changed.
+
+### The hole-year panel
+
+The course-level tests above answer within a resolution of half a stroke or more; the hole tables allow a sharper question. Every documented change touches one hole in one year while seventeen are left alone, so each change has a control group inside the same tournament. @tbl-panel gives the estimates of @eq-panel with and without hole-specific trends, and @fig-f4 plots them.
+
+```{python}
+#| label: fig-f4
+#| fig-cap: "Two-way fixed-effects coefficients by class of change, with and without hole-specific linear trends; bars are ±1.96 cluster-robust standard errors. Year effects absorb the course total; the design identifies relative effects only."
+#| fig-width: 6.5
+#| fig-height: 2.4
+#| echo: false
+import sys; sys.path.insert(0,'scripts'); import fig_lib as F
+F.fig4();
+```
+
+| Class of change | (a) Hole and year FE | (a) Wild p | (a) Holm p | (b) + hole trends | (b) Wild p | (b) Holm p | (b) Randomisation p |
+|---|---|---|---|---|---|---|---|
+| Lengthening, per 10 yards | +0.030 (0.006) | < .001 | < .001 | +0.034 (0.005) | < .001 | < .001 | < .001 |
+| Green rebuilt or recontoured | −0.065 (0.022) | .037 | .15 | −0.060 (0.030) | .17 | .68 | .024 |
+| Trees added | +0.035 (0.028) | .32 | .96 | +0.029 (0.022) | .54 | 1.00 | |
+| Trees removed | +0.005 (0.023) | .86 | 1.00 | −0.048 (0.027) | .45 | 1.00 | |
+| Bunker or fairway work | +0.003 (0.023) | .88 | 1.00 | +0.021 (0.029) | .52 | 1.00 | |
+
+: Two-way fixed-effects estimates, 756 hole-years. Standard errors clustered by hole; p-values from the wild-cluster bootstrap (5,000 draws), with Holm adjustment across the five classes; randomisation p from 2,000 permutations of the holes' change histories. {#tbl-panel}
+
+Lengthening adds **0.034 strokes per 10 yards** to the hole it touches, relative to the other seventeen (SE 0.005; wild-cluster p < .001; randomisation p < .001 against a null SD of 0.008). The coefficient rises from 0.030 to 0.034 when hole-specific trends are added, as it should if Augusta tends to lengthen holes whose difficulty was drifting downward. With length as the only regressor it is 0.037. The effect works through bogeys: 10 yards raise the hole's bogey-or-worse rate by 1.5 percentage points (SE 0.3, p < .001) and lower its birdie rate by 1.4 (SE 0.2, p < .001). It is linear in dose — a quadratic term is +0.002 per squared 10 yards (p = .36), so the first 20 yards and the yards from 40 to 60 are worth the same — and it is the same on par 4s (0.036) and par 5s (0.034; interaction p = .92) and smaller on par 3s (0.021; p = .04). In the specification without hole trends the par-5 coefficient is 0.013, a third of the par-4 figure; that result does not survive the trends and is reported here as the kind of heterogeneity a two-way design can manufacture when treated units have their own drift.
+
+The other classes do nothing the panel can establish. A rebuilt or recontoured green appears to ease its hole by about 0.06 strokes, and the randomisation test puts that at p = .024, but the coefficient rests on five alterations to five holes, the wild-cluster p is .17 with trends and .68 after Holm adjustment, and the paper reports it as suggestive. Trees and bunker work have coefficients indistinguishable from zero.
+
+Two checks on the two-way estimate. The event study (@fig-f5) around the 23 lengthenings of 15 yards or more (mean 28 yards) shows the time path: in the four to six years before a move the hole runs 0.012–0.015 per 10 yards below its own trend (k = −3 is −0.027, SE 0.005, the one pre-period coefficient that is individually distinguishable from zero — Augusta lengthens holes that have just played easy), in the three years after it runs +0.028 above (k = 0: +0.031, SE 0.006), and from the fourth year on the excess settles at +0.019. Part of the initial jump is reversion from the easy years that prompted the change, and part fades as the field adjusts; the durable effect of a lengthening is nearer 0.02 per 10 yards than the 0.034 the pooled coefficient gives, which weights the largest and most recent moves most heavily. The stacked clean-control design, with 5.9 clean controls per event on average, gives +0.039 per 10 yards (cluster-robust SE 0.005, wild-cluster p < .001; cluster-bootstrap 95% CI 0.030 to 0.050), or +0.108 strokes per event as a binary treatment (bootstrap SE 0.017), and +0.032 with window-specific hole trends (SE 0.006, wild p = .001; bootstrap CI 0.016 to 0.046). The pooled two-way coefficient is thus bracketed by the stacked estimate above and the event-study rate below, and the paper uses the event-study rate as the conservative figure for the counterfactual.
+
+```{python}
+#| label: fig-f5
+#| fig-cap: "Event study around 23 lengthenings of 15 yards or more: hole scoring relative to par per 10 yards added, net of hole and year fixed effects and hole-specific trends, relative to the year before the move; bars are ±1.96 cluster-robust standard errors; endpoints binned."
+#| fig-width: 6.5
+#| fig-height: 2.4
+#| echo: false
+import sys; sys.path.insert(0,'scripts'); import fig_lib as F
+F.fig5();
+```
+
+### The two designs reconcile
+
+The panel is silent on the course total by construction: the year effects absorb it. Summed over the 660 yards added since 1983, the relative effect is 2.2 strokes at the two-way rate and about 1.3 at the event-study rate. The course-level series says the total did not move: the weather-adjusted shift is +0.01 at 2002 (HAC SE 0.22) and −0.02 at 2006 (SE 0.24). Both are true at once only if the unchanged holes eased by as much as the changed holes hardened, and the hole tables show that, around the lengthenings themselves, they did. Comparing the four Masters after each lengthening with the four before, the holes untouched by any change over the window eased by 0.25 strokes in total across 2002 while the changed holes hardened by 0.64, and across 2006 the untouched holes eased by 0.33 while the changed holes hardened by 0.38 — a partial offset at the first lengthening and a complete one at the second, with the course totals moving +0.39 and +0.04. The same pattern in the recent era is broader: comparing 2019–26 with 2010–18 hole by hole, the front nine accounts for −0.44 of the −0.47 raw difference and the back nine for almost none; all four par 3s eased (−0.25 together), the par 4s −0.17, the par 5s −0.06, and the holes that got harder are the 5th, 13th and 15th, each lengthened in the period, and the 17th and 18th by a few hundredths. Bogeys per round fell from 3.66 to 3.41 and birdies rose from 3.11 to 3.27. An easing that is broad, concentrated on the shorter holes, and expressed in fewer bogeys more than in more birdies is not the signature of distance; it is consistent with presentation — firmness, hole locations, rough — which the data do not observe and the paper does not claim to have identified. The panel's one directional result for presentation, the green coefficient, has the same sign.
+
+@fig-f6 shows the counterfactual. Over 2002–2018 the course as played (the sum of the eighteen hole scores relative to par) averaged +1.68; the course that was not lengthened would have averaged +0.74 at the event-study rate and about 0.0 at the two-way rate. Over 2019–2026 the actual +0.90 becomes −0.27 to −1.19. The lengthening did not make Augusta National harder; it held the course roughly level against an easing of one to two strokes on everything else — the ball, the athletes, the agronomy and the presentation together. That is the central result: the lengthening did what it was built to do on the holes it touched, and everything else moved the course by as much in the other direction.
+
+```{python}
+#| label: fig-f6
+#| fig-cap: "The course as played (sum of the eighteen hole scores relative to par) and two counterfactuals without the lengthening, constructed as actual minus the relative effect of cumulative yards added at the two-way fixed-effects rate and at the post-reversion event-study rate."
+#| fig-width: 6.5
+#| fig-height: 2.6
+#| echo: false
+import sys; sys.path.insert(0,'scripts'); import fig_lib as F
+F.fig6();
+```
+
+### The recent easing
+
+The tournaments from 2019 are 0.54 strokes easier than 1983–2018 after weather adjustment (−0.47 without November 2020), and playing-hours temperatures in those Aprils average 72°F against 70°F before, so weather does not account for it. How significant that contrast is depends on the error model, and with eight post-period years the choice matters: the HAC standard error is 0.14 (p < .001), the ordinary standard error 0.24 (p = .03), and an AR(1) sieve bootstrap of the contrast gives p = .085. A HAC estimate below the ordinary one with eight post-period observations and positive autocorrelation is a small-sample artefact, and the paper takes the bootstrap figure as the honest one. Two further qualifications separate a dated contrast from a break. First, 2019 is the year of the No. 5 tee move — a date fixed by the course — but it is not where the series itself breaks most sharply: the sup-F search over 1990–2019 peaks at 2017, and the shift is about −0.6 with the break placed anywhere from 2015 to 2018. Second, when the break date is treated as unknown, the largest F (8.4) does not reach significance against the AR(1) sieve null (p = .20; p = .28 without 2020; 5% critical value 13.9). The honest description is therefore a gradual easing since the mid-2010s, on the order of half a stroke, suggestive as a contrast at a pre-specified date and not established as a break at an unknown one. The course reached its greatest length and its easiest era at the same time either way.
+
+## Discussion
+
+**What a fixed course measures.** The ninety-year series is a record of how one course played for the golfers and equipment of each era, and its largest movements — a stroke between the mid-1950s and the early 1980s, half a stroke since the mid-2010s — are not identified as effects of the course. The hole-year panel is identified, because within a tournament the equipment, the field and the weather are common to all eighteen holes, and it says that documented lengthening has a clear, linear, slowly fading effect on the hole it touches and that the untouched holes absorbed the course's easing. The two designs answer different questions, and a reader who wants to know whether Augusta is harder than it was in 1983 should be told that the question has no answer in these data, while a reader who wants to know what forty yards on a par 4 is worth can be given a number with a standard error.
+
+**Lengthening and the game.** A distance equivalence makes the flat total intelligible. Tour average driving distance rose about 44 yards between 1983 and 2026, and Augusta's 660 yards is 37 per hole; at the panel's rates, 44 yards of player distance is worth between −1.5 and −2.7 strokes across eighteen holes and the lengthening between +1.3 and +2.2, which is what a flat total looks like. The equivalence is arithmetic, not an estimate, and it bundles equipment, athleticism and agronomy into one "distance" term. Separating them requires either a second course measured the same way or a design that holds the golfer fixed across decades; neither is attempted here.
+
+**Amplitude as a measured quantity.** The most portable result may be the simplest. An elite field on a fixed course moves about 0.86 strokes from one year to the next, 0.68 after weather, and the rotating venues move the same amount between visits. Any claim that a course "played harder" or "played easier" at one championship than at the last, made from a one-stroke difference in the field average, is a claim about noise unless the weather and the field are accounted for. The Course Rating system has no analogue of this number, and the tournament reports that compare one year's scoring with another's do not state it.
+
+**Generality.** The design requires a venue measured annually by a field of roughly constant standard, hole-level scoring, and a dated record of what was changed. Of the four men's majors only the Masters meets all three; on the PGA Tour, courses such as Pebble Beach, Riviera, Colonial, Harbour Town and Muirfield Village meet the first two and would meet the third if their clubs published a chronology. The method applies without change to a club's own competition records, where the field is weaker but far larger and the course changes are documented.
+
+## Limitations
+
+The panel's treatments are documented alterations, and changes that were not documented — mowing lines, green speed, rough height, hole locations — are in the year effects when they moved all holes alike and in the error when they did not. The lengthening coefficient is identified under the assumption that the untouched holes are a valid counterfactual for the touched ones; hole-specific trends, the pre-period event-study coefficients and the stacked design all bear on that assumption, and one of them qualifies it: the coefficient three years before a move (−0.027, SE 0.005) says that Augusta lengthens holes that have just played easy. The paper's durable estimate is the post-reversion rate for that reason, and the pooled coefficient should be read as an upper bound. Six green alterations on five holes are too few to establish the green effect, and the paper says so. The year-level inference rests on 44 weather-adjusted observations for the modern series, eight of them after 2019; the HAC estimator is unreliable in that configuration, the break tests are low-powered, and a half-stroke drift in a series with residual SD 0.66 and positive autocorrelation is exactly the kind of change such tests cannot establish. The weather instrument is an airport 16 km away; at Augusta a closer station gives the same result, but the paper shows this for one inland site and should not be read as a general finding about station distance. Finally, the field scoring average relative to par is one instrument; a strokes-gained decomposition by category, which would test the presentation hypothesis of Section 4.5 directly, is not available before 2004 and is not published for the Masters.
+
+## Data and code availability
+
+The scoring series, the weather windows, the hole-year panel, the course-change chronology and the scripts that produce every number and figure in the paper are deposited at the Open Science Framework, <https://doi.org/10.17605/OSF.IO/3HGJ2> (folder `manuscript/`), and in the GitHub repository that accompanies this manuscript (see Acknowledgements). The four input files are in the repository's `data/` folder; `scripts/analysis.py`, `scripts/stacked.py` and `scripts/checks.py` reproduce every number in the text (the bootstrap and randomisation runs take about twenty minutes), and the six figures are drawn by `scripts/fig_lib.py` when the manuscript is rendered.
+
+## Competing interests
+
+The author is the founder of FogBow LLC, a consultancy that applies course-measurement methods of the kind described here commercially for golf courses. The research was conducted independently and received no funding; all data and code are public.
+
+## Acknowledgements
+
+The pre-1983 scoring was transcribed from the 2026 Masters Tournament Media Guide. A broader companion study of three championship venues [@mohiuddin2026fv] preceded this paper; the Augusta results here supersede that study's Augusta section where the inference was redone. Reproducibility repository: <https://github.com/REPO_URL_TO_BE_FILLED>.
+
+## References {.unnumbered}

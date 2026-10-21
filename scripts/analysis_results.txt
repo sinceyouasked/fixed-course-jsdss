@@ -1,0 +1,116 @@
+=== 1. Ninety Masters: era means (headline and first-36) ===
+            n   fsa   f36    sd  sd36
+era                                  
+1934-42     9  2.98  2.88  0.59  0.91
+1946-56    11  3.38  3.29  0.89  0.94
+1957-80    24  1.98  2.60  0.88  0.95
+1981-2001  21  1.49  2.12  0.78  1.17
+2002-18    17  1.49  2.15  0.88  0.83
+2019-26     8  0.81  1.20  0.79  0.91
+all: n=90 headline 1.94 (SD 1.10); first36 2.39 (SD 1.09)
+
+=== 2. Weather models (playing-hours temperature and wind; Newey-West HAC) ===
+1983-2026 headline lags=0: const +5.33; temp -0.0716 (SE 0.0253, p 0.005); wind +0.1117 (SE 0.0471, p 0.018); R2 0.41; resid SD 0.66; n 44
+1983-2026 headline lags=2: const +5.33; temp -0.0716 (SE 0.0251, p 0.004); wind +0.1117 (SE 0.0503, p 0.026); R2 0.41; resid SD 0.66; n 44
+1983-2026 headline lags=4: const +5.33; temp -0.0716 (SE 0.0258, p 0.005); wind +0.1117 (SE 0.0534, p 0.037); R2 0.41; resid SD 0.66; n 44
+   residual lag-1 autocorrelation 0.25; DW 1.50
+1948-2026 headline lags=0: const +5.05; temp -0.0744 (SE 0.0172, p 0.000); wind +0.1919 (SE 0.0486, p 0.000); R2 0.42; resid SD 0.84; n 79
+1948-2026 headline lags=2: const +5.05; temp -0.0744 (SE 0.0163, p 0.000); wind +0.1919 (SE 0.0463, p 0.000); R2 0.42; resid SD 0.84; n 79
+1948-2026 headline lags=4: const +5.05; temp -0.0744 (SE 0.0156, p 0.000); wind +0.1919 (SE 0.0447, p 0.000); R2 0.42; resid SD 0.84; n 79
+   residual lag-1 autocorrelation 0.55; DW 0.89
+1948-2026 first36 lags=0: const +7.39; temp -0.0920 (SE 0.0165, p 0.000); wind +0.1311 (SE 0.0415, p 0.002); R2 0.38; resid SD 0.89; n 79
+1948-2026 first36 lags=2: const +7.39; temp -0.0920 (SE 0.0152, p 0.000); wind +0.1311 (SE 0.0448, p 0.003); R2 0.38; resid SD 0.89; n 79
+1948-2026 first36 lags=4: const +7.39; temp -0.0920 (SE 0.0141, p 0.000); wind +0.1311 (SE 0.0462, p 0.005); R2 0.38; resid SD 0.89; n 79
+   residual lag-1 autocorrelation 0.46; DW 1.08
+1983-2026 first36 lags=0: const +7.01; temp -0.0853 (SE 0.0233, p 0.000); wind +0.0976 (SE 0.0567, p 0.085); R2 0.34; resid SD 0.84; n 44
+1983-2026 first36 lags=2: const +7.01; temp -0.0853 (SE 0.0259, p 0.001); wind +0.0976 (SE 0.0659, p 0.138); R2 0.34; resid SD 0.84; n 44
+1983-2026 first36 lags=4: const +7.01; temp -0.0853 (SE 0.0262, p 0.001); wind +0.0976 (SE 0.0747, p 0.191); R2 0.34; resid SD 0.84; n 44
+   residual lag-1 autocorrelation 0.44; DW 1.10
+era interaction 1948-82 vs 1983-2026: temp x post -0.0097 (p 0.77); wind x post -0.1010 (p 0.23)
+block-bootstrap (4-yr blocks) 95% CI: temp per F [-0.1224,-0.0231]; 10F colder [+0.23,+1.22]; wind per mph [-0.0056,+0.2152]
+
+=== 3. Era contrasts with the year as the unit (HAC SE, lags 2) ===
+1983-2026 headline, weather-adjusted: shift at 2019 = -0.54 (HAC SE 0.14, p 0.000; iid SE 0.24); n before 36, after 8
+  same, dropping Nov 2020: shift at 2019 = -0.47 (HAC SE 0.13, p 0.000; iid SE 0.26); n before 36, after 7
+1948-2026 first36, weather-adjusted: shift at 1957 = -0.87 (HAC SE 0.34, p 0.010; iid SE 0.30); n before 9, after 70
+  first36 at 1981: shift at 1981 = -0.45 (HAC SE 0.25, p 0.075; iid SE 0.19); n before 33, after 46
+  first36 2002 vs 1981-2001: shift at 2002 = -0.03 (HAC SE 0.31, p 0.920; iid SE 0.25); n before 21, after 25
+  headline 2002 vs 1983-2001: shift at 2002 = +0.01 (HAC SE 0.22, p 0.977; iid SE 0.20); n before 19, after 25
+  headline 2006 vs (1983-2005 vs 2006-18): shift at 2006 = -0.02 (HAC SE 0.24, p 0.946; iid SE 0.23); n before 23, after 13
+
+=== 4. Break of unknown date: sup-F (15% trimming) with AR(1)-sieve bootstrap null, 5,000 draws ===
+1983-2026 headline adj.: sup-F 8.4 at 2017; AR(1) rho 0.25; sieve p 0.203; sieve 5% critical 13.9; n 44
+  dropping 2020: sup-F 6.5 at 2017; AR(1) rho 0.21; sieve p 0.281; sieve 5% critical 12.9; n 43
+1948-2026 first36 adj.: sup-F 19.3 at 1968; AR(1) rho 0.46; sieve p 0.076; sieve 5% critical 22.2; n 79
+1948-2026 headline adj.: sup-F 44.6 at 1959; AR(1) rho 0.54; sieve p 0.008; sieve 5% critical 27.6; n 79
+1957-2026 first36 adj. (post-cut): sup-F 10.5 at 1973; AR(1) rho 0.40; sieve p 0.232; sieve 5% critical 19.2; n 70
+1983-2026 first36 adj.: sup-F 5.6 at 2019; AR(1) rho 0.43; sieve p 0.594; sieve 5% critical 22.7; n 44
+first36 1948-2026: after a break at 1968, sub-sample sup-F: 
+   before 1948-1967: sup-F 2.2 at 1960, sieve p 0.815
+   after 1968-2026: sup-F 4.7 at 2018, sieve p 0.615
+
+=== 5. Amplitude ===
+Augusta 1983-2026: SD 0.84; mean |yoy| 0.86; median |yoy| 0.86; share >=1 0.37 (16/43)
+Augusta 1948-2026: SD 1.09; mean |yoy| 0.82; median |yoy| 0.76; share >=1 0.37 (29/78)
+Augusta 1957-2026: SD 0.90; mean |yoy| 0.82; median |yoy| 0.76; share >=1 0.36 (25/69)
+weather-adjusted 1983-2026: SD 0.65; mean |yoy| 0.68
+15-yr windows since 1948 (65): SD range 0.62-1.13; mean|yoy| range 0.62-1.05
+benchmark 15 venues: median gap 0.55; mean 0.99; >=1: 6/15
+Augusta mean |change| at the benchmark gaps (mean gap 8.3): 0.85; stationary-series expectation 2*SD/sqrt(pi) = 0.95
+Mann-Whitney Augusta |yoy| vs benchmark gaps: p 0.99
+
+=== 6. Hole-year panel, 42 Masters, 756 hole-years ===
+-- 6a. Two-way FE, all classes (SE clustered by hole; wild-cluster bootstrap p, Rademacher, 5,000 draws)
+   dy10: +0.0304 (SE 0.0055, wild p 0.000)
+   green: -0.0646 (SE 0.0216, wild p 0.037)
+   trees_added: +0.0349 (SE 0.0283, wild p 0.321)
+   trees_removed: +0.0053 (SE 0.0228, wild p 0.862)
+   bunker_fairway: +0.0032 (SE 0.0227, wild p 0.882)
+-- 6b. Adding hole-specific linear trends
+   dy10: +0.0340 (SE 0.0050, wild p 0.000)
+   green: -0.0595 (SE 0.0295, wild p 0.170)
+   trees_added: +0.0289 (SE 0.0222, wild p 0.539)
+   trees_removed: -0.0475 (SE 0.0273, wild p 0.452)
+   bunker_fairway: +0.0211 (SE 0.0291, wild p 0.521)
+   Holm-adjusted wild p (five classes), no trends: dy10 0.000, green 0.150, trees_added 0.963, trees_removed 1.000, bunker_fairway 1.000
+   Holm-adjusted wild p, with trends:            dy10 0.000, green 0.678, trees_added 1.000, trees_removed 1.000, bunker_fairway 1.000
+-- 6c. Length only, and dose/par heterogeneity (with hole trends)
+   length only: +0.0369 (SE 0.0040, wild p 0.000)
+   quadratic term: +0.0022 (SE 0.0015, wild p 0.356)
+   par 4 +0.0356; par 3 +0.0208 (int. p 0.04); par 5 +0.0337 (int. SE 0.0142, wild p 0.917)
+-- 6d. Bogey and birdie rates per 10 yards (with trends)
+   bog: +1.52 pct points per 10 yds (SE 0.27, wild p 0.000)
+   bog green: -2.31 pct points (SE 1.05, wild p 0.122)
+   bird: -1.35 pct points per 10 yds (SE 0.24, wild p 0.000)
+   bird green: +1.87 pct points (SE 1.49, wild p 0.349)
+-- 6e. Randomisation inference: permute the hole-change histories across holes (keeping timing), 2,000 draws
+   lengthening: observed +0.0340; randomisation p 0.000 (null SD 0.0079)
+   green: observed -0.0595; randomisation p 0.024
+-- 6f. Event study around lengthenings of 15+ yards (hole & year FE; with and without hole trends)
+   events: 23; mean yards 27.8
+   no trends (per 10 yds, k: coef (SE)): -6:-0.003(0.007); -5:-0.012(0.011); -4:-0.017(0.008); -3:-0.027(0.005); -2:-0.002(0.009); 0:+0.031(0.008); 1:+0.023(0.009); 2:+0.030(0.010); 3:+0.020(0.010); 4:+0.013(0.009); 5:+0.019(0.012); 6:+0.022(0.010)
+      mean pre (k=-5..-2) -0.014; k=0..2 +0.028; k=3..6+ +0.018
+   hole trends (per 10 yds, k: coef (SE)): -6:-0.004(0.010); -5:-0.012(0.012); -4:-0.017(0.009); -3:-0.027(0.005); -2:-0.002(0.009); 0:+0.031(0.006); 1:+0.023(0.008); 2:+0.030(0.007); 3:+0.021(0.007); 4:+0.012(0.007); 5:+0.018(0.010); 6:+0.026(0.006)
+      mean pre (k=-5..-2) -0.015; k=0..2 +0.028; k=3..6+ +0.019
+-- 6g. Stacked clean-control design (±6-yr windows; controls with no change in window), with window FE and window-hole trends
+   stacks 23, mean clean controls per event 5.9
+   per 10 yds: +0.0394 (SE clustered by hole 0.0339, p 0.246)
+   binary: +0.1076 (SE clustered by hole nan, p nan)
+   per 10 yds + stack-hole trends: +0.0320 (SE clustered by hole nan, p nan)
+-- 6h. Counterfactual course without lengthening (year totals minus relative effect of cumulative yards)
+   pooled TWFE rate +0.0304: 2002-18 actual +1.68 -> counterfactual +0.17; 2019-26 +0.90 -> -0.97
+   TWFE with trends rate +0.0340: 2002-18 actual +1.68 -> counterfactual -0.01; 2019-26 +0.90 -> -1.19
+   event-study k>=3 (trends) rate +0.0191: 2002-18 actual +1.68 -> counterfactual +0.74; 2019-26 +0.90 -> -0.27
+   relative effect summed over 660 yards: pooled +2.01; trends +2.24
+-- 6i. Where the recent easing sits: 2019-26 vs 2010-18 by hole class (descriptive)
+   total -0.47; front -0.44; back -0.04; par3 -0.25; par4 -0.17; par5 -0.06
+   2019-26 vs 2010-18, weather-adjusted total: shift at 2019 = -0.43 (HAC SE 0.20, p 0.030; iid SE 0.25); n before 9, after 8
+
+=== 7. Pebble Beach: station exposure (n stated) ===
+shoreline gust vs FSA, regular era: n 10, r 0.74, p 0.015
+   slope +0.165 per mph (HC1 SE 0.059, p 0.005); R2 0.54
+airport wind vs FSA, same years: n 10, r 0.63, p 0.050
+airport 2004-2023 (n 20): wind r 0.05 (p 0.83); temp r -0.25 (p 0.29)
+   shoreline vs airport correlation difference (Williams t, n=10): t 0.45, p 0.66; r(shoreline,airport) 0.53
+Pebble regular era amplitude 2004-2023: SD 0.79; mean |yoy| 0.91
+DONE

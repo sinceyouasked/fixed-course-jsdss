@@ -1,0 +1,7 @@
+_manuscript/
+index.quarto_ipynb
+index.log
+index.tex
+index_files/
+__pycache__/
+.quarto/
