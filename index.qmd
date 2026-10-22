@@ -258,6 +258,6 @@ The author is the founder of FogBow LLC, a consultancy that applies course-measu
 
 ## Acknowledgements
 
-The pre-1983 scoring was transcribed from the 2026 Masters Tournament Media Guide. A broader companion study of three championship venues [@mohiuddin2026fv] preceded this paper; the Augusta results here supersede that study's Augusta section where the inference was redone. Reproducibility repository: <https://github.com/REPO_URL_TO_BE_FILLED>.
+The pre-1983 scoring was transcribed from the 2026 Masters Tournament Media Guide. A broader companion study of three championship venues [@mohiuddin2026fv] preceded this paper; the Augusta results here supersede that study's Augusta section where the inference was redone. Reproducibility repository: <https://github.com/sinceyouasked/fixed-course-jsdss>.
 
 ## References {.unnumbered}

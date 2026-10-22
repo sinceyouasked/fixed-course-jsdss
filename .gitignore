@@ -5,3 +5,5 @@ index.tex
 index_files/
 __pycache__/
 .quarto/
+
+/.quarto/
