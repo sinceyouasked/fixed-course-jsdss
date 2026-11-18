@@ -1,0 +1,12 @@
+Augusta 1983-2026: birth-date coverage 95.9% of player-tournaments; sample with 3+ appearances: 370 players, 3292 player-tournaments, 10699 rounds; age range 17-78
+Riviera 1973-2026: birth-date coverage 96.8% of player-tournaments; sample with 3+ appearances: 728 players, 5648 player-tournaments, 17798 rounds; age range 16-78
+Augusta, prime-age window 27-38 (333 players, 1704 player-tournaments): year effects net of player FE: slope -0.09/decade (raw field series slope -0.18/decade); era means: 1983-1997 -0.16 (raw +1.33), 1998-2008 +0.13 (raw +1.88), 2009-2018 -0.24 (raw +1.05), 2019-2026 -0.69 (raw +0.57)
+Augusta, prime-age window 25-40 (347 players, 2130 player-tournaments): year effects net of player FE: slope -0.04/decade (raw field series slope -0.18/decade); era means: 1983-1997 +0.07 (raw +1.33), 1998-2008 +0.50 (raw +1.88), 2009-2018 +0.07 (raw +1.05), 2019-2026 -0.33 (raw +0.57)
+Riviera, prime-age window 27-38 (687 players, 3381 player-tournaments): year effects net of player FE: slope -0.24/decade (raw field series slope -0.33/decade); era means: 1973-1987 +0.34 (raw +1.38), 1988-1997 -0.55 (raw +0.59), 1998-2008 -1.25 (raw +0.25), 2009-2018 -0.59 (raw +0.45), 2019-2023 -0.47 (raw -0.10), 2024-2026 -1.25 (raw -1.12)
+Riviera, prime-age window 25-40 (708 players, 4221 player-tournaments): year effects net of player FE: slope -0.18/decade (raw field series slope -0.33/decade); era means: 1973-1987 +0.51 (raw +1.38), 1988-1997 -0.12 (raw +0.59), 1998-2008 -0.58 (raw +0.25), 2009-2018 -0.15 (raw +0.45), 2019-2023 -0.22 (raw -0.10), 2024-2026 -0.89 (raw -1.12)
+Augusta: curvature of the within-player age profile (year and player FE): +0.0066 strokes per (year from 32)^2 -> ages 27 and 38 differ from 32 by +0.17 and +0.24 on curvature alone; the linear term is unidentified (APC)
+Riviera: curvature of the within-player age profile (year and player FE): +0.0059 strokes per (year from 32)^2 -> ages 27 and 38 differ from 32 by +0.15 and +0.21 on curvature alone; the linear term is unidentified (APC)
+Augusta, anchored aging (BRL-type): year effects slope +0.69/decade; 1983-1997 +0.40, 2009-2018 +2.24, 2019-2026 +2.46
+Augusta, anchored aging (modern-type): year effects slope +0.56/decade; 1983-1997 +0.31, 2009-2018 +1.83, 2019-2026 +1.94
+Riviera, anchored aging (BRL-type): year effects slope -0.14/decade; 1973-1987 +0.75, 1988-1997 +0.14, 2009-2018 +0.28, 2019-2023 +0.17
+Riviera, anchored aging (modern-type): year effects slope -0.24/decade; 1973-1987 +0.68, 1988-1997 -0.05, 2009-2018 -0.13, 2019-2023 -0.31

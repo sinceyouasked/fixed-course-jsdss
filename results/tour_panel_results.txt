@@ -1,0 +1,23 @@
+=== Tour-wide limited-field DiD, 2019-2026 (event FE + year FE; SE clustered by event) ===
+events in window: 55; event-years 439; switchers (full->limited within window): 5: AT&T Pebble Beach Pro-Am, FedEx St. Jude Championship, RBC Heritage, Travelers Championship, Truist Championship
+all events: limited-field effect -0.851 (SE 0.365, p 0.020); n=439
+switchers + never-limited controls: -0.825 (SE 0.365, p 0.024); n=367, events 46
+event study (ref k=-1): k=-3:+0.08(SE 0.41), k=-2:-0.01(SE 0.34), k=0:-1.01(SE 0.23), k=1:-0.20(SE 0.52), k=2:-0.46(SE 0.58)
+per-event: pre (2019-23 full) mean -> limited mean
+  AT&T Pebble Beach Pro-Am           -0.25 -> -2.16 (-1.91); limited years [2024, 2025, 2026]
+  RBC Heritage                       -0.81 -> -1.64 (-0.83); limited years [2024, 2025]
+  FedEx St. Jude Championship        -1.10 -> -0.86 (+0.23); limited years [2023, 2024, 2025, 2026]
+  Travelers Championship             -0.84 -> -1.87 (-1.03); limited years [2024, 2025, 2026]
+  Truist Championship                +0.93 -> -0.38 (-1.31); limited years [2020, 2024, 2025, 2026]
+on first-36 (cut-free) field average: -0.874 (SE 0.373, p 0.019)
+
+=== Synthetic control: Riviera (suffix 7) step at 1987/88 ===
+donor events with complete 1975-1997 series: 51
+Riviera: pre-period RMSPE 0.58; mean post-1988 gap (actual − synthetic) -0.44; actual change pre->post -0.87; synthetic change -0.40
+  weights: Travelers Championship 0.32, U.S. Open 0.26, RBC Canadian Open 0.15, Texas Children's Houston Ope 0.14, Arnold Palmer Invitational p 0.09, THE PLAYERS Championship 0.03
+  placebo (in space): Riviera post/pre ratio 0.76, rank 41 of 52 -> permutation p = 0.788; donors with post gap <= Riviera's: 8 of 51
+  simple donor-average change 1975-87 -> 1988-97: -0.30 (Riviera -0.87)
+
+=== Synthetic control: venue drift 1983-2023, Augusta (suffix 14) and Riviera (7) against the tour ===
+Augusta: fitted on 1983-97 (RMSPE 0.68); gap 2009-23 actual−synthetic +0.23; actual drift -0.51, synthetic drift -0.68; donors 52
+Riviera: fitted on 1983-97 (RMSPE 0.74); gap 2009-23 actual−synthetic +0.84; actual drift -0.92, synthetic drift -1.77; donors 52

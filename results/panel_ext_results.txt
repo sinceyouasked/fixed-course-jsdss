@@ -1,0 +1,20 @@
+=== A2.1 Heterogeneity of the lengthening effect (hole & year FE; SE clustered by hole; wild-cluster bootstrap p, 2,000 draws) ===
+pooled: per 10 yds +0.0304 (SE 0.0055, wild p 0.000)
+quadratic: dy10 +0.0297 (SE 0.0108), dy10^2 +0.0001 (SE 0.0011, wild p 0.920); implied effect of first 20 yds +0.060, of yards 40-60 +0.062
+by par: par 4 +0.0342 (SE 0.0055); par 3 +0.0294 (interaction SE 0.0058, p 0.41); par 5 +0.0134 (interaction SE 0.0050, p 0.00)
+by 1983 length: per 10 yds at mean-length hole +0.0304; change per +100 yds of baseline length -0.0043 (SE 0.0037, wild p 0.261)
+per 1% of 1983 length added: +0.0100 (SE 0.0022, wild p 0.000); 10 yds on a 400-yd hole = 2.5% -> +0.025
+
+=== A2.2 Heterogeneous-timing estimators ===
+de Chaisemartin–D'Haultfoeuille DID_M (switchers vs stayers, t-1 to t, yards-weighted): +0.0317 per 10 yds, hole-cluster bootstrap 95% CI [+0.0108, +0.0533]; 14 switching hole-years, mean stayers 13.1
+  unweighted mean of per-10 effects +0.0272; 15+ yd switches only: +0.0348 (n=11)
+first lengthening >=15 yds: cohorts [1994, 1999, 2002, 2003, 2006]; never-treated holes: [3, 6, 10, 12, 16]
+Sun–Abraham interaction-weighted event study (first >=15-yd lengthening; hole & year FE; controls never/not-yet treated): k=-5:-0.020, k=-4:-0.021, k=-3:-0.060, k=-2:+0.041, k=0:+0.092, k=1:+0.082, k=2:+0.095, k=3:+0.079, k=4:+0.072, k=5:+0.071
+  mean post (k=0..5) +0.082, mean pre (k=-5..-2) -0.015; mean first-lengthening size among treated 30 yds (event-study, Section 4: 0.0) 
+
+=== A2.3 Distributional signature: bogey and birdie rates by hole-year (hole FE) ===
+bog: 2019– vs 1983–2009, short holes -0.0426 (SE 0.0079); long-hole difference +0.0098 (SE 0.0120, p 0.42); 2010–18 short -0.0126, long diff -0.0114
+bir: 2019– vs 1983–2009, short holes +0.0323 (SE 0.0105); long-hole difference +0.0234 (SE 0.0145, p 0.11); 2010–18 short +0.0175, long diff +0.0241
+rel: 2019– vs 1983–2009, short holes -0.0979 (SE 0.0189); long-hole difference -0.0124 (SE 0.0275, p 0.65); 2010–18 short -0.0436, long diff -0.0412
+bog per 10 yds added: short holes +0.0126 (SE 0.0036); long-hole difference -0.0008 (p 0.81)
+bir per 10 yds added: short holes -0.0139 (SE 0.0027); long-hole difference +0.0049 (p 0.07)
